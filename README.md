@@ -9,7 +9,8 @@ An extension layer for poky, the reference linux distribution of Yocto / openEmb
 
 ## Usage & dependencies
 
-Only depends on `poky`. Simply add to your `bblayers.conf` and you are ready to go.
+Only depends on the `poky` layer. Simply add to your `bblayers.conf` and
+you are ready to go.
 
 ## Contribution
 
