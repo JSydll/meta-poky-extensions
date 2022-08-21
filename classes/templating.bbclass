@@ -8,8 +8,9 @@ inherit logging
 # 
 # @param template_path Path to the template file
 # @param params associative array of parameter name and the value to be set
+# @param output_file_name (Optional) custom output file name.
 # -------------------
-def render_template(template_path, params):
+def render_template(template_path, params, output_file_name=None):
     from jinja2 import Environment, FileSystemLoader
     
     if not os.path.exists(template_path):
@@ -19,7 +20,11 @@ def render_template(template_path, params):
     file_name, ext = os.path.splitext(template_name)
     if ext not in [".j2", ".jinja2", ".template", ".tmpl"]:
         bb.error("The template '%s' has no known extension!" % template_name)
-    file_path = os.path.join(base_path, file_name)
+
+    if output_file_name:
+        file_path = os.path.join(base_path, output_file_name)
+    else:
+        file_path = os.path.join(base_path, file_name)
     
     file_loader = FileSystemLoader(base_path)
     env = Environment(loader=file_loader, trim_blocks=True)
