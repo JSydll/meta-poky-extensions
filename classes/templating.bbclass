@@ -1,7 +1,6 @@
 # -------------------
 # Methods to modify files templated with jinja2
 # -------------------
-inherit logging
 
 # -------------------
 # Renders the given jinja2 template
